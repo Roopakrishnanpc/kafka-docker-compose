@@ -1,0 +1,110 @@
+Command Line Interface Commands(CLI)
+Apache-kafka open source
+cd C:/Users/ASHWIN KRISHNAN/Downloads/kafka_2.12-3.8.0/kafka_2.12-3.8.0
+bin/zookeeper-server-start.sh config/zookeeper.properties
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+default zookeeper server: 2181
+default kafka server:9092
+first topic(Learning-topic):
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --create --topic Learning-topic --partitions 3 --replication-factor 1
+second topic(Handson-topic):
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --create --topic Handson-topic --partitions 3 --replication-factor 1
+Get List Of Topics:
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --list
+GetListOfTopics:
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --describe --topic Handson-topic
+
+
+bin\kafka-console-producer.sh --broker-list localhost:9092 --topic Handson-topic
+when you click you can post the messages you want
+bin\kafka-console-producer.sh --broker-list localhost:9092 --topic Handson-topic </Path/Of/Your/file/User.csv and enter 
+eg: user.csv you can use any file any file
+
+bin\kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Handson-topic --from-beginning
+here what ever message you send here consumer will listen to that
+
+in Offset Explorer which we have downloaded add connection -> go to your topic and click on it all messages and monitorning will be shown there. You can see partition also and how data it is partitioned. Also that is not in our hand it is all about zookeeper and broker/server
+
+1. Apache-kafka open source
+2. Commercial distribution - confluent kafka - Community version free have downloaded
+3. Managed Kafka Service(AWS)
+
+Commercial distribution - confluent kafka (same as open source instead config give etc)
+cd C:\Users\ASHWIN KRISHNAN\Downloads\confluent-community-7.7.0 (1)\confluent-7.7.0
+bin/zookeeper-server-start.sh etc/zookeeper.properties
+
+bin/kafka-server-start.sh etc/zookeeper.properties
+default zookeeper server: 2181
+default kafka server:9092
+first topic(Learning-topic):
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --create --topic Learning-topic --partitions 3 --replication-factor 1
+second topic(Handson-topic):
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --create --topic Handson-topic --partitions 3 --replication-factor 1
+Get List Of Topics:
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --list
+GetListOfTopics:
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --describe --topic Handson-topic
+
+
+bin\kafka-console-producer.sh --broker-list localhost:9092 --topic Handson-topic
+when you click you can post the messages you want
+bin\kafka-console-producer.sh --broker-list localhost:9092 --topic Handson-topic </Path/Of/Your/file/User.csv and enter 
+eg: user.csv you can use any file any file
+
+
+
+C:\Users\ASHWIN KRISHNAN\Documents\SprintCompleteCourse\kafka-installations>wsl --status
+Default Distribution: docker-desktop
+Default Version: 2
+
+C:\Users\ASHWIN KRISHNAN\Documents\SprintCompleteCourse\kafka-installations>wsl --update
+docker compose -f docker-compose.yml up -d 
+docker ps
+docker exec -it kafkacontainer /bin/sh
+ls
+cd opt
+ls
+cd kafka_2.12-3.8.0
+pwd
+ls
+cd bin
+ls
+Learning-Topic
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --create --topic Learning-topic --partitions 3 --replication-factor 1
+in our case
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic Learning-topic --partitions 3 --replication-factor 1
+
+second topic(Handson-topic):
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --create --topic Handson-topic --partitions 3 --replication-factor 1
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic Handson-topic --partitions 3 --replication-factor 1
+
+Get List Of Topics:
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --list
+./kafka-topics.sh --bootstrap-server localhost:9092 --list
+./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic Learning-Topic
+[2024-08-10 16:57:46,729] WARN [AdminClient clientId=adminclient-1] The DescribeTopicPartitions API is not supported, using Metadata API to describe topics. (org.apache.kafka.clients.admin.KafkaAdminClient)
+Topic: Learning-Topic   TopicId: rmYZJfZCQBGC6vlBdCDG5w PartitionCount: 1       ReplicationFactor: 1    Configs:
+        Topic: Learning-Topic   Partition: 0    Leader: 0       Replicas: 0     Isr: 0  Elr: N/A        LastKnownElr: N/A
+PS C:\kafka> ./bin/windows/kafka-topics.bat --bootstrap-server localhost:9092 --describe --0 topic Handson-topic
+Error while executing topic command : Topic 'Optional[Handson-topic]' does not exist as expected
+GetListOfTopics:
+bin/kafka-topic.sh --bootstrap-server localhost:9092 --describe --topic Handson-topic
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic Learning-topic
+./kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic Learning-topic
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic Handson-topic
+./kafka-console-producer.sh --broker-list localhost:9092 --topic Handson-topic </Users/ASHWIN KRISHNAN/Downloads/annual-enterprise-survey-2023-financial-year-provisional.csv
+
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Handson-topic --from-beginning
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Handson-topic --from-beginning > consumed_messages.txt &
+
+.\bin\kafka-console-producer.bat --broker-list localhost:9092 --topic Handson-topic < "C:\Users\ASHWIN KRISHNAN\Downloads\annual-enterprise-survey-2023-financial-year-provisional.csv"
+
+docker cp "C:\Users\ASHWIN KRISHNAN\Downloads\annual-enterprise-survey-2023-financial-year-provisional.csv" kafkaContainer:/tmp/
+Successfully copied 7.45MB to kafkaContainer:/tmp/
+./kafka-console-producer.sh --broker-list localhost:9092 --topic Handson-topic < /tmp/annual-enterprise-survey-2023-financial-year-provisional.csv
+
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
